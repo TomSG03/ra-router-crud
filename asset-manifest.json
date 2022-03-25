@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ra-router-crud/static/css/main.157d18e8.css",
+    "main.js": "/ra-router-crud/static/js/main.3e070c22.js",
+    "static/js/787.04097c43.chunk.js": "/ra-router-crud/static/js/787.04097c43.chunk.js",
+    "index.html": "/ra-router-crud/index.html",
+    "main.157d18e8.css.map": "/ra-router-crud/static/css/main.157d18e8.css.map",
+    "main.3e070c22.js.map": "/ra-router-crud/static/js/main.3e070c22.js.map",
+    "787.04097c43.chunk.js.map": "/ra-router-crud/static/js/787.04097c43.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.157d18e8.css",
+    "static/js/main.3e070c22.js"
+  ]
+}

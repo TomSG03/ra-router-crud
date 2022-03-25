@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import useJsonFetch from './useJsonFetch'
 import PostsList from './PostsList';
 
-function Posts({ url }) {
-  const [data, isLoading, error] = useJsonFetch(`${url}/posts`);
+function Posts() {
+  const [data, isLoading, error] = useJsonFetch(`${process.env.REACT_APP_URL}/posts`);
 
   return (
     <div className="posts">

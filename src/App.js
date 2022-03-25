@@ -1,11 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import './App.css';
-// import Page404 from './Crud/Page404';
-import NewPost from './Crud/NewPost';
+import ShiftPost from './Crud/ShiftPost';
 import Posts from './Crud/Posts';
-import ViewPost from './Crud/ViewPost';
-const url = 'http://localhost:7777';
+import SelectPost from './Crud/SelectPost';
 
 export default function App() {
   return (
@@ -13,7 +11,7 @@ export default function App() {
       <BrowserRouter>
 
         <nav className="nav">
-          <div >
+          <div className='head-title'>
             <Link to="/posts/new">
               <button className="btn-add">Создать пост</button>
             </Link>
@@ -22,10 +20,10 @@ export default function App() {
 
         <div className="page">
           <Routes>
-            <Route path="/posts" element={<Posts url={url} />} />
-            <Route path="/posts/new" element={<NewPost url={url} />} />
-            <Route path="/posts/:id" element={<ViewPost url={url} />} />
-            <Route path="*" element={<Posts url={url} />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/new" element={<ShiftPost title={'Создание'}/>} />
+            <Route path="/posts/:id" element={<SelectPost />} />
+            <Route path="*" element={<Posts />} />
           </Routes>
         </div>
 

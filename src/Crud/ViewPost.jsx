@@ -1,40 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import 'moment/locale/ru';
-import { useNavigate, useParams } from 'react-router-dom';
-import useJsonFetch from './useJsonFetch'
+import PostContent from './PostContent';
 
-
-function ViewPost({ url }) {
-  const { id } = useParams();
-  const [data, isLoading, error] = useJsonFetch(`${url}/posts`);
-
+function ViewPost({ post, onEdit, title }) {
   const navigate = useNavigate();
   const onCancel = () => navigate('/posts');
 
-  const findPost = () => data.find((e) => Number(e.id) === Number(id));
+  function onDelete() {
+    fetch(`${process.env.REACT_APP_URL}/posts/${post.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(() => onCancel());
+  }
 
   return (
-    <div className="posts">
-      {isLoading && <div> Loading... </div>}
-      {error && <div> {error} </div>}
-      {data && !isLoading && (
-        <div className='post'>
-          <button className='btn-cancel' onClick={onCancel}>×</button>
-          <div className='post-content'>
-            <p>{moment(new Date(findPost().created)).fromNow()}</p>
-            <br/>
-            <p>{findPost().content}</p>
-          </div>
-          <button className='btn-edit'>Изменить</button>
-          <button className='btn-del'>Удалить</button>
-        </div>
-      )}
-    </div>
+    <PostContent title={title}>
+      <div className='post-content'>
+        <p>{moment(new Date(post.created)).fromNow()}</p>
+        <br />
+        <p>{post.content}</p>
+      </div>
+      <div className="footer-post">
+        <button className='btn-edit' onClick={() => onEdit(false)}>Изменить</button>
+        <button className='btn-del' onClick={onDelete}>Удалить</button>
+      </div>
+    </PostContent>
   )
 }
 
-ViewPost.propTypes = {}
+ViewPost.propTypes = {
+  post: PropTypes.object,
+  onEdit: PropTypes.func,
+  title: PropTypes.string
+}
 
 export default ViewPost

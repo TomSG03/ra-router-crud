@@ -22,7 +22,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://TomSG03.github.io/ra-router-crud",
+  "homepage": "https://TomSG03.github.io/ra-router-crud/",
   "eslintConfig": {
     "extends": [
       "react-app",

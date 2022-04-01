@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { HashRouter, Route, Routes, Link } from "react-router-dom";
 import './App.css';
 import ShiftPost from './Crud/ShiftPost';
 import Posts from './Crud/Posts';
@@ -8,7 +8,7 @@ import SelectPost from './Crud/SelectPost';
 export default function App() {
   return (
     <div className='App'>
-      <BrowserRouter>
+      <HashRouter>
 
         <nav className="nav">
           <div className='head-title'>
@@ -27,7 +27,7 @@ export default function App() {
           </Routes>
         </div>
 
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
